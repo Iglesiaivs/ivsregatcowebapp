@@ -11,7 +11,7 @@
 
 //Firebase: Authentication
 //Google Firebase : Google Popu up
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 
 import {
   getAuth,
@@ -20,7 +20,7 @@ import {
   getRedirectResult,
   onAuthStateChanged,
   signOut
-} from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
 //Firebase: RealTime Database
 import {
@@ -35,20 +35,18 @@ import {
   equalTo, 
   child,
   update
-} from "https://www.gstatic.com/firebasejs/10.3.0/firebase-database.js";
+} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
 
 let direccion="", celular="", ciudad="";
 
 //Firebase: Initialize service
 const firebaseApp = initializeApp({
-  apiKey: "AIzaSyB99IdPxEqZc4beXekgA6IlHy_V9o5gvrE",
-  authDomain: "appcode-html.firebaseapp.com",
-  databaseURL: "https://appcode-html-default-rtdb.firebaseio.com",
-  projectId: "appcode-html",
-  storageBucket: "appcode-html.appspot.com",
-  messagingSenderId: "909647857277",
-  appId: "1:909647857277:web:ff15c25a5653bf1b73d314",
-  measurementId: "G-ZP0KSH35YF"
+  apiKey: "AIzaSyArK2n6_hj6ijMv5v6c7w924zgtK8G8INI",
+  authDomain: "iglesiaivsregionalatco.firebaseapp.com",
+  projectId: "iglesiaivsregionalatco",
+  storageBucket: "iglesiaivsregionalatco.appspot.com",
+  messagingSenderId: "228956104410",
+  appId: "1:228956104410:web:6ceb3f6bed247d9df3e7e3"
 });
 
 const auth = getAuth(firebaseApp);
@@ -90,16 +88,15 @@ login.addEventListener("click", (e) => {
       const user = result.user;
 
       //Desplegamos el boton
-      logoutButton.style.display = "block";
+  ////logoutButton.style.display = "block";
       //Ocultamos el boton
-      login.style.display   = "none";          
+  ////login.style.display   = "none";
 
       //Ocultamos el texto del modal perfil
-      logoutButton2.style.display = "block";
+  ////logoutButton2.style.display = "block";
       //Desplegamos el texto del modal perfil
-      login2.style.display    = "none";
+  ////login2.style.display    = "none";
       // ...          
-
 
     })
     .catch((error) => {
@@ -110,7 +107,6 @@ login.addEventListener("click", (e) => {
       // ...
     });
 });
-
 
 login2.addEventListener("click", (e) => {
 
@@ -147,6 +143,7 @@ login2.addEventListener("click", (e) => {
 });
 
 
+
 // Escuchamos el evento click en el botón
 logoutButton.addEventListener("click", (e) => {
   // Salir sesion
@@ -175,6 +172,7 @@ logoutButton.addEventListener("click", (e) => {
 });
 
 
+
 // Escuchamos el evento click en el botón
 logoutButton2.addEventListener("click", (e) => {
   // Salir sesion
@@ -201,7 +199,7 @@ logoutButton2.addEventListener("click", (e) => {
     console.log(error);
   });
 });
-
+ 
 
 
 // Agrega un evento al botón actuperfil para agregar el subnivel "perfil" a los datos del usuario
@@ -251,6 +249,8 @@ actuperfil.addEventListener("click", () => {
 });
 
 
+
+
 //AL cambiar el estado de autenticacion
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -260,18 +260,18 @@ onAuthStateChanged(auth, (user) => {
       let id       = 1;
 
       //modal perfil: cuenta
-      document.getElementById("idcuenta-nombre").innerText = "Nombre : " + uname;
-      document.getElementById("idcuenta-email").innerText  = "Email : "  + uemail;
+  ////document.getElementById("idcuenta-nombre").innerText = "Nombre : " + uname;
+  ////document.getElementById("idcuenta-email").innerText  = "Email : "  + uemail;
 
       //Ocultamos el botón
-      login.style.display   = "none";
+  ////login.style.display   = "none";
       //Desplegamos el botón
-      logoutButton.style.display = "block";
+  ////logoutButton.style.display = "block";
 
       //Ocultamos el texto del modal perfil
-      logoutButton2.style.display = "block";
+  ////logoutButton2.style.display = "block";
       //Desplegamos el texto del modal perfil
-      login2.style.display    = "none";
+  ////login2.style.display    = "none";
       // ...    
 
       const emailEncoded = btoa(uemail); // Codificar el email en Base64
@@ -306,22 +306,17 @@ onAuthStateChanged(auth, (user) => {
     // User is signed out
 
     //Ocultamos el botón
-    logoutButton.style.display = "none";
+  ////logoutButton.style.display = "none";
     //Desplegamos el botón
-    login.style.display    = "block";
+  ////login.style.display    = "block";
     // ...
 
     //Ocultamos el texto del modal perfil
-    logoutButton2.style.display = "none";
+  ////logoutButton2.style.display = "none";
     //Desplegamos el texto del modal perfil
-    login2.style.display    = "block";
+  ////login2.style.display    = "block";
     // ...    
 
 
   }
 });
-
-
-
-
- */
